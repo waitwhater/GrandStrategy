@@ -25,7 +25,10 @@ namespace Assets.Scripts.Game.Grid
         {
             for (int i = 0; i < GridHexes.GetLength(0); i++)
                 for (int j = 0; j < GridHexes.GetLength(1); j++)
-                    hexSpawner.CreateHex(i, j);
+                {
+                    GridHexes[i, j] = hexSpawner.CreateHex();
+                    hexSpawner.SetupHex(i, j, GridHexes[i, j]);
+                }
         }
 
     }

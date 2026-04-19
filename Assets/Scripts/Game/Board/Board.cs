@@ -8,25 +8,19 @@ namespace Assets.Scripts.Game.Board
 {
     public class Board : MonoBehaviour
     {
-        private HexGrid hexGrid;
-
-        //[SerializeField] private int gridWidth;
-        //[SerializeField] private int gridHeight;
-        //[SerializeField] private HexGridConfig gridConfigure;
-
+        private HexGrid _hexGrid;
 
         void Start()
         {
             Debug.Log("Start");
-            hexGrid.FillGrid();
+            _hexGrid.FillGrid();
         }
-
 
         [Inject]
-        public void Construct(HexGrid mapGrid)
+        public void Construct(HexGrid hexGrid)
         {
-            Debug.Log("Inject in Board");
-            hexGrid = mapGrid;
+            _hexGrid = hexGrid;
         }
+
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts.Game.HexCell
 {
     public class Hex : MonoBehaviour
-    {
+    {        
 
     }
 }

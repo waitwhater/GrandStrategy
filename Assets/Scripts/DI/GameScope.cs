@@ -17,13 +17,12 @@ namespace Assets.Scripts.DI
         {
             Debug.Log("Configure");
 
-            builder.RegisterComponentInNewPrefab<Hex>(hexPrefab, Lifetime.Scoped); //создание нового монобех объекта
-            builder.Register<HexSpawner>(Lifetime.Scoped);
+            builder.RegisterComponentInNewPrefab<Hex>(hexPrefab, Lifetime.Transient);
 
-            builder.Register<HexGrid>(Lifetime.Singleton);
+            builder.Register<HexGrid>(Lifetime.Scoped);
+            builder.Register<HexSpawner>(Lifetime.Singleton);
 
-            builder.RegisterComponentInNewPrefab<Board>(boardPrefab, Lifetime.Scoped); //создание нового монобех объекта
-            //.AsImplementedInterfaces() // Позволяет внедрять как интерфейс (если нужно) - возможно потребуется позже (qwen)
+            builder.RegisterComponentInNewPrefab<Board>(boardPrefab, Lifetime.Scoped);
 
         }
 

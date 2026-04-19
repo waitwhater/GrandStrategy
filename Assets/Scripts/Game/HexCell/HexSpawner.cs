@@ -10,16 +10,22 @@ namespace Assets.Scripts.Game.HexCell
 {
     public class HexSpawner
     {
-        [Inject] private Func<Hex> hexFactory;
+        [Inject] private readonly Hex _hex;
 
-        public void CreateHex(int widthPos, int heightPos)
+        public HexSpawner(Hex hex)
+        {
+            _hex = hex;
+            Debug.Log("hex spawner has been created");
+        }
+
+        public Hex CreateHex() => _hex;
+
+        public void SetupHex(int widthPos, int heightPos, Hex hex)
         {
             UnityEngine.Vector3 position;
             position.x = widthPos * 10f;
             position.y = 0f;
             position.z = heightPos * 10f;
-
-            Hex hex = hexFactory();
 
             hex.transform.position = position;
             hex.gameObject.SetActive(true);
