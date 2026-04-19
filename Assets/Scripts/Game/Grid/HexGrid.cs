@@ -11,11 +11,13 @@ namespace Assets.Scripts.Game.Grid
         public int Height { get; private set; }
         public Hex[,] GridHexes { get; private set; }
 
-        [Inject] private HexSpawner hexSpawner;
+        //[Inject] private HexSpawner hexSpawner;
+        private readonly HexSpawner _hexSpawner;
 
-
-        public HexGrid(/*int width, int height*/)
+        public HexGrid(HexSpawner hexSpawner)
         {
+            _hexSpawner = hexSpawner;
+
             Width = 6;
             Height = 6;
             GridHexes = new Hex[Width, Height];
@@ -26,9 +28,11 @@ namespace Assets.Scripts.Game.Grid
             for (int i = 0; i < GridHexes.GetLength(0); i++)
                 for (int j = 0; j < GridHexes.GetLength(1); j++)
                 {
-                    GridHexes[i, j] = hexSpawner.CreateHex();
-                    hexSpawner.SetupHex(i, j, GridHexes[i, j]);
+                    GridHexes[i, j] = _hexSpawner.CreateHex();
+                    _hexSpawner.SetupHex(i, j, GridHexes[i, j]);
                 }
+
+            Debug.Log($"Grid filled: {Width}x{Height}");
         }
 
     }

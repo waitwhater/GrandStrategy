@@ -4,28 +4,37 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 using VContainer;
+using VContainer.Unity;
 
 namespace Assets.Scripts.Game.HexCell
 {
     public class HexSpawner
     {
-        [Inject] private readonly Hex _hex;
+        private readonly GameObject _hexPrefab;
+        private readonly IObjectResolver _resolver;
 
-        public HexSpawner(Hex hex)
+        public HexSpawner(GameObject gameObject, IObjectResolver objectResolver)
         {
-            _hex = hex;
-            Debug.Log("hex spawner has been created");
+            _hexPrefab = gameObject;
+            _resolver = objectResolver;
+
+            Debug.Log("HexSpawner created");
+
         }
 
-        public Hex CreateHex() => _hex;
+        public Hex CreateHex()
+        {
+            return _resolver.Instantiate(_hexPrefab).GetComponent<Hex>();
+        }
 
         public void SetupHex(int widthPos, int heightPos, Hex hex)
         {
             UnityEngine.Vector3 position;
-            position.x = widthPos * 10f;
+            position.x = widthPos * 20f;
             position.y = 0f;
-            position.z = heightPos * 10f;
+            position.z = heightPos * 20f;
 
             hex.transform.position = position;
             hex.gameObject.SetActive(true);
