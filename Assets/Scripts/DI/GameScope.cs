@@ -10,21 +10,20 @@ namespace Assets.Scripts.DI
 {
     public class GameScope : LifetimeScope
     {
-        [SerializeField] private Board board;
+        [SerializeField] private Board boardPrefab;
         [SerializeField] private Hex hexPrefab;
 
         protected override void Configure(IContainerBuilder builder)
         {
             Debug.Log("Configure");
 
-            builder.RegisterComponent(board);
-
-            builder.Register<HexGrid>(Lifetime.Singleton);
+            builder.RegisterComponentInNewPrefab<Hex>(hexPrefab, Lifetime.Scoped); //создание нового монобех объекта
             builder.Register<HexSpawner>(Lifetime.Scoped);
 
-            builder.RegisterComponentInNewPrefab<Hex>(hexPrefab, Lifetime.Scoped); //создание нового монобех объекта
+            builder.Register<HexGrid>(Lifetime.Singleton);
 
-            //builder.RegisterInstance(board);
+            builder.RegisterComponentInNewPrefab<Board>(boardPrefab, Lifetime.Scoped); //создание нового монобех объекта
+            //.AsImplementedInterfaces() // Позволяет внедрять как интерфейс (если нужно) - возможно потребуется позже (qwen)
 
         }
 
