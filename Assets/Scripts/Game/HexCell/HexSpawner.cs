@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Game.Grid;
+using Assets.Scripts.Tools;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -24,17 +25,17 @@ namespace Assets.Scripts.Game.HexCell
 
         }
 
-        public Hex CreateHex()
+        public Hex CreateHex(Transform parent)
         {
-            return _resolver.Instantiate(_hexPrefab).GetComponent<Hex>();
+            return _resolver.Instantiate(_hexPrefab, parent).GetComponent<Hex>();
         }
 
         public void SetupHex(int widthPos, int heightPos, Hex hex)
         {
             UnityEngine.Vector3 position;
-            position.x = widthPos * 20f;
+            position.x = (widthPos + heightPos * 0.5f - heightPos / 2) * (HexMetrics.innerRadius * 2f); //widthPos * 20f;
             position.y = 0f;
-            position.z = heightPos * 20f;
+            position.z = heightPos * (HexMetrics.outerRadius * 1.5f); //heightPos * 20f;
 
             hex.transform.position = position;
             hex.gameObject.SetActive(true);

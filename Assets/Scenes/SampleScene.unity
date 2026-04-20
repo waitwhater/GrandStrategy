@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3c6a32b357f154c87e22a119887873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Board.Board
+  _isDebugging: 1
 --- !u!4 &1137483260
 Transform:
   m_ObjectHideFlags: 0
