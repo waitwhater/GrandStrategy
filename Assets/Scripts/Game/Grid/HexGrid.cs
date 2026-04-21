@@ -9,7 +9,7 @@ namespace Assets.Scripts.Game.Grid
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
-        public Hex[,] GridHexes { get; private set; }
+        public Hex[] Hexes { get; private set; }
 
         private readonly HexSpawner _hexSpawner;
 
@@ -19,16 +19,16 @@ namespace Assets.Scripts.Game.Grid
 
             Width = 6;
             Height = 6;
-            GridHexes = new Hex[Width, Height];
+            Hexes = new Hex[Width * Height];
         }
 
         public void FillGrid (Transform parent)
         {
-            for (int i = 0; i < GridHexes.GetLength(0); i++)
-                for (int j = 0; j < GridHexes.GetLength(1); j++)
+            for (int x = 0, i = 0; x < Width; x++)
+                for (int z = 0; z < Height; z++, i++)
                 {
-                    GridHexes[i, j] = _hexSpawner.CreateHex(parent);
-                    _hexSpawner.SetupHex(i, j, GridHexes[i, j]);
+                    Hexes[i] = _hexSpawner.CreateHex(parent);
+                    _hexSpawner.SetupHex(x, z, Hexes[i]);
                 }
 
             Debug.Log($"Grid filled: {Width}x{Height}");

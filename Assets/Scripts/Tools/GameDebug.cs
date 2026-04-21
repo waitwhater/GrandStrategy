@@ -18,12 +18,9 @@ namespace Assets.Scripts.Tools
 
         public void ShowDebug()
         {
-            for (int x = 0; x < _hexGrid.Width; x++)
-                for (int y = 0; y < _hexGrid.Height; y++)
-                {
-                    CreateDebugText(_hexGrid.GridHexes[x, y].transform, $"{x}, {y}",
-                        _hexGrid.GridHexes[x , y].GetHexWorldPosition());
-                }
+            for (int x = 0, i = 0; x < _hexGrid.Width; x++)
+                for (int z = 0; z < _hexGrid.Height; z++, i++)
+                    CreateDebugText(_hexGrid.Hexes[i].transform, $"{x}, {z}", _hexGrid.Hexes[i].GetHexWorldPosition());
         }
 
         public void CreateDebugText(Transform parent, string text, Vector3 position)
