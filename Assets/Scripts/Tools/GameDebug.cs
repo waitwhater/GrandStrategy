@@ -20,7 +20,7 @@ namespace Assets.Scripts.Tools
         {
             for (int x = 0, i = 0; x < _hexGrid.Width; x++)
                 for (int z = 0; z < _hexGrid.Height; z++, i++)
-                    CreateDebugText(_hexGrid.Hexes[i].transform, $"{x}, {z}", _hexGrid.Hexes[i].GetHexWorldPosition());
+                    CreateDebugText(_hexGrid.Hexes[i].transform, $"{_hexGrid.Hexes[i].hexCoordinates}", _hexGrid.Hexes[i].GetHexWorldPosition());
         }
 
         public void CreateDebugText(Transform parent, string text, Vector3 position)

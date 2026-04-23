@@ -466,7 +466,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   boardPrefab: {fileID: 1308270761547346224, guid: a4b152546ccdd624e813e187512b9ee8, type: 3}
-  hexPrefab: {fileID: 5754522141559515210, guid: 83b1bc46eca6a1046ad0f9c387d13351, type: 3}
+  hexPrefab: {fileID: 6457411079280570497, guid: 703f8f2e2dd802142b987ef9b22e9f8d, type: 3}
 --- !u!4 &919811882
 Transform:
   m_ObjectHideFlags: 0

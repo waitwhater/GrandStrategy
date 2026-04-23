@@ -33,9 +33,10 @@ namespace Assets.Scripts.Game.HexCell
         public void SetupHex(int widthPos, int heightPos, Hex hex)
         {
             UnityEngine.Vector3 position;
-            position.x = (widthPos + heightPos * 0.5f - heightPos / 2) * (HexMetrics.innerRadius * 2f); //widthPos * 20f;
+            position.x = (widthPos + heightPos * 0.5f - heightPos / 2) * (HexMetrics.innerRadius * 2f);
             position.y = 0f;
-            position.z = heightPos * (HexMetrics.outerRadius * 1.5f); //heightPos * 20f;
+            position.z = heightPos * (HexMetrics.outerRadius * 1.5f);
+            hex.hexCoordinates = HexMetrics.FromOffsetCoordinates(widthPos, heightPos);
 
             hex.transform.position = position;
             hex.gameObject.SetActive(true);
