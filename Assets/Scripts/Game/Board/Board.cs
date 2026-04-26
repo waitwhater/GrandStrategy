@@ -13,21 +13,24 @@ namespace Assets.Scripts.Game.Board
 
         private HexGrid _hexGrid;
         private GameDebug _gameDebug;
+        private CameraControl _cameraControl;
 
         void Start()
         {
             Debug.Log("Start");
             _hexGrid.FillGrid(this.transform);
+            _cameraControl.SetupCamera(_hexGrid.Width, _hexGrid.Height); //переделать - на точку спавна
 
             if (_isDebugging)
                 _gameDebug.ShowDebug();
         }
 
         [Inject]
-        public void Construct(HexGrid hexGrid, GameDebug gameDebug)
+        public void Construct(HexGrid hexGrid, GameDebug gameDebug, CameraControl cameraControl)
         {
             _hexGrid = hexGrid;
             _gameDebug = gameDebug;
+            _cameraControl = cameraControl;
         }
 
     }

@@ -23,6 +23,7 @@ namespace Assets.Scripts.DI
             builder.Register<HexGrid>(Lifetime.Scoped);
             builder.Register<HexSpawner>(Lifetime.Singleton);
             builder.Register<GameDebug>(Lifetime.Singleton);
+            builder.Register<CameraControl>(Lifetime.Singleton);
 
             builder.RegisterComponentInHierarchy<Board>();
         }

@@ -17,8 +17,8 @@ namespace Assets.Scripts.Game.Grid
         {
             _hexSpawner = hexSpawner;
 
-            Width = 7;
-            Height = 7;
+            Width = 16;
+            Height = 16;
             Hexes = new Hex[Width * Height];
         }
 
