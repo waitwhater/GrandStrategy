@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Game.Board;
 using Assets.Scripts.Game.Grid;
 using Assets.Scripts.Game.HexCell;
+using Assets.Scripts.Inputs;
 using Assets.Scripts.Tools;
 using System.Collections;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace Assets.Scripts.DI
             builder.Register<HexSpawner>(Lifetime.Singleton);
             builder.Register<GameDebug>(Lifetime.Singleton);
             builder.Register<CameraControl>(Lifetime.Singleton);
+            //builder.Register<InputsReader>(Lifetime.Singleton);
 
             builder.RegisterComponentInHierarchy<Board>();
         }

@@ -7,7 +7,8 @@ namespace Assets.Scripts.Tools
 {
     public class CameraControl
     {
-        Camera cam = Camera.main;
+        private Camera cam = Camera.main;
+        public Camera Cam { get => cam; }
 
         public void SetupCamera(int wid, int he)
         {
