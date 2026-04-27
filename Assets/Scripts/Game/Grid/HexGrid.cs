@@ -17,13 +17,19 @@ namespace Assets.Scripts.Game.Grid
         {
             _hexSpawner = hexSpawner;
 
+            /*
             Width = 16;
             Height = 16;
             Hexes = new Hex[Width * Height];
+            */
         }
 
-        public void FillGrid (Transform parent)
+        public void FillGrid (Transform parent, int width, int height)
         {
+            Width = width;
+            Height = height;
+            Hexes = new Hex[Width * Height];
+
             for (int x = 0, i = 0; x < Width; x++)
                 for (int z = 0; z < Height; z++, i++)
                 {

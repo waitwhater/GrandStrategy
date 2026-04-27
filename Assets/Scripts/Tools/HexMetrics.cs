@@ -34,4 +34,15 @@ namespace Assets.Scripts.Tools
         }
     }
 
+    public enum LandscapeTypes
+    {
+        Water,
+        Grassland,
+        Plain,
+        Desert,
+        Tundra,
+        Snow
+    }
+
+
 }

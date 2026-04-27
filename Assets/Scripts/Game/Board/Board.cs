@@ -7,11 +7,13 @@ using System.Collections;
 using UnityEngine;
 using VContainer;
 using UnityEngine.InputSystem;
+using Assets.Scripts.Tools.Configs;
 
 namespace Assets.Scripts.Game.Board
 {
     public class Board : MonoBehaviour
     {
+        [SerializeField] private GridConfig _gridConfig;
         [SerializeField] private bool _isDebugging;
 
         private HexGrid _hexGrid;
@@ -23,10 +25,12 @@ namespace Assets.Scripts.Game.Board
         void Start()
         {
             Debug.Log("Start");
-            _hexGrid.FillGrid(this.transform);
+
+            _hexGrid.FillGrid(this.transform, _gridConfig.Width, _gridConfig.Height);
+
             _cameraControl.SetupCamera(_hexGrid.Width, _hexGrid.Height); //потом переделать - на точку спавна
             _inputReader = new InputReader();
-            _inputReader.EnableInputs(true);
+            _inputReader.EnableInputs();
             _inputReader.Click += HandleInput;
 
             if (_isDebugging)
@@ -46,7 +50,7 @@ namespace Assets.Scripts.Game.Board
         private void TouchCell(GameObject hex)
         {
             Debug.Log($"touch at {hex.GetComponent<Hex>().hexCoordinates.ToString()}");
-            hex.GetComponent<Hex>().SetColor();//прикола ради
+            //hex.GetComponent<Hex>().SetColor(Color.magenta);//прикола ради
         }
 
         private void OnDisable()

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
 using VContainer;
@@ -37,6 +38,8 @@ namespace Assets.Scripts.Game.HexCell
             position.y = 0f;
             position.z = heightPos * (HexMetrics.outerRadius * 1.5f);
             hex.hexCoordinates = HexMetrics.FromOffsetCoordinates(widthPos, heightPos);
+
+            hex.LandscapeType = (LandscapeTypes)UnityEngine.Random.Range(0, 6);
 
             hex.transform.position = position;
             hex.gameObject.SetActive(true);

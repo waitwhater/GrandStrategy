@@ -19,7 +19,7 @@ namespace Assets.Scripts.Inputs
             _inputs.Player.Attack.performed += OnClick;
         }
 
-        public void EnableInputs(bool value)
+        public void EnableInputs()
         {
             _inputs.Enable();
         }
