@@ -25,9 +25,12 @@ namespace Assets.Scripts.DI
             builder.Register<HexSpawner>(Lifetime.Singleton);
             builder.Register<GameDebug>(Lifetime.Singleton);
             builder.Register<CameraControl>(Lifetime.Singleton);
-            //builder.Register<InputsReader>(Lifetime.Singleton);
+            builder.Register<InputReader>(Lifetime.Singleton);
+            builder.Register<HexInteractions>(Lifetime.Singleton);
 
             builder.RegisterComponentInHierarchy<Board>();
+            builder.RegisterComponentInHierarchy<MapEditor>();
+
         }
 
 

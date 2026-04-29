@@ -16,12 +16,6 @@ namespace Assets.Scripts.Game.Grid
         public HexGrid(HexSpawner hexSpawner)
         {
             _hexSpawner = hexSpawner;
-
-            /*
-            Width = 16;
-            Height = 16;
-            Hexes = new Hex[Width * Height];
-            */
         }
 
         public void FillGrid (Transform parent, int width, int height)

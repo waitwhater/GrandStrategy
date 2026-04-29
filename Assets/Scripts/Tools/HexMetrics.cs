@@ -22,9 +22,9 @@ namespace Assets.Scripts.Tools
     [Serializable]
     public struct HexCoordinates
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public int Z { get; private set; } //это надо рефакторить, Z можно не хранить, оно вычисляемое
+        [field: SerializeField] public int X { get; private set; }
+        [field: SerializeField] public int Y { get; private set; }
+        [field: SerializeField] public int Z { get; private set; } //это надо рефакторить, Z можно не хранить, оно вычисляемое
 
         public HexCoordinates(int x, int y, int z) { X = x; Y = y; Z = z; }
 
@@ -34,6 +34,7 @@ namespace Assets.Scripts.Tools
         }
     }
 
+    [Serializable]
     public enum LandscapeTypes
     {
         Water,

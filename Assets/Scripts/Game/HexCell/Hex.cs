@@ -9,7 +9,7 @@ namespace Assets.Scripts.Game.HexCell
     public class Hex : MonoBehaviour
     {
         public HexCoordinates hexCoordinates; //как будто это полный бред делать координаты публичными
-        private LandscapeTypes landscapeType;
+        [SerializeField] private LandscapeTypes landscapeType;
         //private bool isSelected;
 
         public LandscapeTypes LandscapeType
@@ -23,21 +23,21 @@ namespace Assets.Scripts.Game.HexCell
                         this.SetColor(Color.blue);
                         break;
                     case LandscapeTypes.Grassland:
-                        this.SetColor(Color.green);
+                        this.SetColor(Color.darkGreen);
                         break;
                     case LandscapeTypes.Plain:
-                        this.SetColor(Color.brown);
+                        this.SetColor(Color.saddleBrown);
                         break;
                     case LandscapeTypes.Desert:
-                        this.SetColor(Color.yellow);
+                        this.SetColor(Color.darkKhaki);
                         break;
                     case LandscapeTypes.Tundra:
-                        this.SetColor(Color.grey);
+                        this.SetColor(Color.darkGray);
                         break;
                     case LandscapeTypes.Snow:
-                        this.SetColor(Color.lightGray);
+                        this.SetColor(Color.snow);
                         break;
-
+                    default:
                         this.SetColor(Color.magenta);
                         break;
                 }
@@ -47,9 +47,6 @@ namespace Assets.Scripts.Game.HexCell
 
         public Vector3 GetHexWorldPosition() => this.transform.position;
 
-        public void SetColor(Color color)
-        {
-            this.GetComponent<MeshRenderer>().material.color = color;
-        }
+        public void SetColor(Color color) => this.GetComponent<MeshRenderer>().material.color = color;
     }
 }

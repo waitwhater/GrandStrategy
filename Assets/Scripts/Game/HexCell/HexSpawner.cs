@@ -39,7 +39,7 @@ namespace Assets.Scripts.Game.HexCell
             position.z = heightPos * (HexMetrics.outerRadius * 1.5f);
             hex.hexCoordinates = HexMetrics.FromOffsetCoordinates(widthPos, heightPos);
 
-            hex.LandscapeType = (LandscapeTypes)UnityEngine.Random.Range(0, 6);
+            hex.LandscapeType = (LandscapeTypes)0;
 
             hex.transform.position = position;
             hex.gameObject.SetActive(true);
