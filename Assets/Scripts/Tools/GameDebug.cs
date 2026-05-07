@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Game.Grid;
+using Assets.Scripts.Game.HexCell;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,20 +17,24 @@ namespace Assets.Scripts.Tools
             _hexGrid = hexGrid;
         }
 
-        public void ShowDebug()
+        public void ShowDebugOnStart()
         {
             for (int x = 0, i = 0; x < _hexGrid.Width; x++)
                 for (int z = 0; z < _hexGrid.Height; z++, i++)
-                    CreateDebugText(_hexGrid.Hexes[i].transform, $"{_hexGrid.Hexes[i].hexLogic.HexCoordinates}", _hexGrid.Hexes[i].GetHexWorldPosition());
+                    ShowHexCoordinates(_hexGrid.Hexes[i]);
+                    //CreateDebugText(_hexGrid.Hexes[i].transform, $"{_hexGrid.Hexes[i].hexLogic.HexCoordinates}", _hexGrid.Hexes[i].GetHexWorldPosition());
         }
 
-
+        public void ShowHexCoordinates(Hex hex)
+        {
+            CreateDebugText(hex.transform, $"{hex.hexLogic.HexCoordinates}", hex.GetHexWorldPosition() + new Vector3(0, hex.GetComponent<Renderer>().bounds.size.y, 0));
+        }
 
         public void CreateDebugText(Transform parent, string text, Vector3 position)
         {
             var debugText = new GameObject("debugText", typeof(TextMeshPro));
             debugText.transform.SetParent(parent);
-            debugText.transform.position = position + new Vector3(0, 1, 0);
+            debugText.transform.position = position + new Vector3(0, 0.3f, 0);
             debugText.transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
             var TMP = debugText.GetComponent<TextMeshPro>();
             TMP.text = text;

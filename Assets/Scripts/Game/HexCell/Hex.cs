@@ -55,8 +55,6 @@ namespace Assets.Scripts.Game.HexCell
         public void OnDestroy()
         {
             hexLogic = null;
-            this.gameObject.SetActive(false);
-
         }
 
         public Vector3 GetHexWorldPosition() => this.transform.position;

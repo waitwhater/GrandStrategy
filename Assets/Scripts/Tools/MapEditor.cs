@@ -20,6 +20,7 @@ namespace Assets.Scripts.Tools
         private HexGrid _grid;
         private HexSpawner _spawner;
         private Board _board;
+        private GameDebug _gameDebug;
 
         public void SelectLandscape(int landscapeType)
         {
@@ -33,10 +34,13 @@ namespace Assets.Scripts.Tools
                 var hexLogic = hex.hexLogic;
 
                 _grid.Hexes[hexLogic.Index] = null;
-                Destroy(hex);
+                Destroy(hex.gameObject);
                 var newHex = _spawner.CreateHex(_board.transform, _selectedLandscape, hexLogic);
                 _grid.Hexes[hexLogic.Index] = newHex;
                 _spawner.SetupHex(newHex);
+
+                if (_board.IsDebugging)
+                    _gameDebug.ShowHexCoordinates(newHex);
             }
             return;
         }
@@ -52,12 +56,13 @@ namespace Assets.Scripts.Tools
         }
 
         [Inject]
-        public void Construct(HexInteractions hexInteractions, HexGrid hexGrid, HexSpawner hexSpawner, Board board)
+        public void Construct(HexInteractions hexInteractions, HexGrid hexGrid, HexSpawner hexSpawner, Board board, GameDebug gameDebug)
         {
             _hexInteractions = hexInteractions;
             _grid = hexGrid;
             _spawner = hexSpawner;
             _board = board;
+            _gameDebug = gameDebug;
         }
 
 

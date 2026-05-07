@@ -22,6 +22,7 @@ namespace Assets.Scripts.Game.Board
         private InputReader _inputReader;
         private HexInteractions _hexInteractions;
 
+        public bool IsDebugging { get => _isDebugging; }
 
         void Start()
         {
@@ -32,14 +33,9 @@ namespace Assets.Scripts.Game.Board
             _cameraControl.SetupCamera(_hexGrid.Width, _hexGrid.Height); //потом переделать - на точку спавна
             _inputReader.EnableInputs();
 
-            if (_isDebugging)
-                _gameDebug.ShowDebug();
+            if (IsDebugging)
+                _gameDebug.ShowDebugOnStart();
         }
-
-        /*private void Update()
-        {
-            Debug.Log("frame");
-        }*/
 
         [Inject]
         public void Construct(HexGrid hexGrid, GameDebug gameDebug, CameraControl cameraControl, InputReader inputReader, HexInteractions hexInteractions)
