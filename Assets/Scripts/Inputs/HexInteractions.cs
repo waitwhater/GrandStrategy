@@ -44,7 +44,7 @@ namespace Assets.Scripts.Inputs
 
         private void TouchCell(Hex hex)
         {
-            Debug.Log($"touch at {hex.hexCoordinates}");
+            Debug.Log($"touch at {hex.hexLogic.HexCoordinates}");
         }
     }
 }

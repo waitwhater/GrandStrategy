@@ -1288,8 +1288,19 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  boardPrefab: {fileID: 1308270761547346224, guid: a4b152546ccdd624e813e187512b9ee8, type: 3}
-  hexPrefab: {fileID: 3123757598032800142, guid: 83b1bc46eca6a1046ad0f9c387d13351, type: 3}
+  hexPrefabMappings:
+  - landscapeType: 0
+    prefab: {fileID: 3123757598032800142, guid: 83b1bc46eca6a1046ad0f9c387d13351, type: 3}
+  - landscapeType: 1
+    prefab: {fileID: 3562358899385644188, guid: 5b7bd314e76d5e4488cf569077ff8668, type: 3}
+  - landscapeType: 2
+    prefab: {fileID: 3562358899385644188, guid: 5b7bd314e76d5e4488cf569077ff8668, type: 3}
+  - landscapeType: 3
+    prefab: {fileID: 3562358899385644188, guid: 5b7bd314e76d5e4488cf569077ff8668, type: 3}
+  - landscapeType: 4
+    prefab: {fileID: 3562358899385644188, guid: 5b7bd314e76d5e4488cf569077ff8668, type: 3}
+  - landscapeType: 5
+    prefab: {fileID: 3562358899385644188, guid: 5b7bd314e76d5e4488cf569077ff8668, type: 3}
 --- !u!4 &919811882
 Transform:
   m_ObjectHideFlags: 0
@@ -1521,7 +1532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Board.Board
   _gridConfig: {fileID: 11400000, guid: a41523951ab8d7f49bf244d063c30c31, type: 2}
-  _isDebugging: 1
+  _isDebugging: 0
 --- !u!4 &1137483260
 Transform:
   m_ObjectHideFlags: 0

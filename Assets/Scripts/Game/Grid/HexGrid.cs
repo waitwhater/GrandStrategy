@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Game.HexCell;
+using Assets.Scripts.Tools;
 using System.Collections;
 using UnityEngine;
 using VContainer;
@@ -27,8 +28,16 @@ namespace Assets.Scripts.Game.Grid
             for (int x = 0, i = 0; x < Width; x++)
                 for (int z = 0; z < Height; z++, i++)
                 {
-                    Hexes[i] = _hexSpawner.CreateHex(parent);
+                    var newHexLogic = new HexLogic(HexMetrics.FromOffsetCoordinates(x, z), x, z, i);
+
+                    Hexes[i] = _hexSpawner.CreateHex(parent, LandscapeTypes.Water, newHexLogic);
+                    _hexSpawner.SetupHex(Hexes[i]);
+
+                    /*
+                    Hexes[i] = _hexSpawner.CreateHex(parent, Tools.LandscapeTypes.Water);
+                    Hexes[i].IndexInGrid = i;
                     _hexSpawner.SetupHex(x, z, Hexes[i]);
+                    */
                 }
 
             Debug.Log($"Grid filled: {Width}x{Height}");

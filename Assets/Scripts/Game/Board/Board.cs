@@ -36,6 +36,11 @@ namespace Assets.Scripts.Game.Board
                 _gameDebug.ShowDebug();
         }
 
+        /*private void Update()
+        {
+            Debug.Log("frame");
+        }*/
+
         [Inject]
         public void Construct(HexGrid hexGrid, GameDebug gameDebug, CameraControl cameraControl, InputReader inputReader, HexInteractions hexInteractions)
         {

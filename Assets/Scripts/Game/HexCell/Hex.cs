@@ -8,9 +8,16 @@ namespace Assets.Scripts.Game.HexCell
     [RequireComponent(typeof(MeshRenderer))]
     public class Hex : MonoBehaviour
     {
+        [SerializeField] public HexLogic hexLogic;
+
+        /*
         public HexCoordinates hexCoordinates; //как будто это полный бред делать координаты публичными
+        
         [SerializeField] private LandscapeTypes landscapeType;
-        //private bool isSelected;
+        
+        public int OffsetWidth { get ; set ; }
+        public int OffsetHeight { get ; set ; }
+        public int IndexInGrid { get ; set ; }
 
         public LandscapeTypes LandscapeType
         {
@@ -44,9 +51,19 @@ namespace Assets.Scripts.Game.HexCell
                 landscapeType = value;
             }
         }
+        */
+        public void OnDestroy()
+        {
+            hexLogic = null;
+            this.gameObject.SetActive(false);
+
+        }
 
         public Vector3 GetHexWorldPosition() => this.transform.position;
 
-        public void SetColor(Color color) => this.GetComponent<MeshRenderer>().material.color = color;
+        public void SetColor(Color color)
+        {
+            this.GetComponent<MeshRenderer>().material.color = color;
+        }
     }
 }
