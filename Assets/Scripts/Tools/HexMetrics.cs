@@ -7,7 +7,7 @@ namespace Assets.Scripts.Tools
 {
     public static class HexMetrics
     {
-        public const float outerRadius = 10f;
+        public const float outerRadius = 5f;
         public const float innerRadius = outerRadius * 0.866025404f;
 
         public static HexCoordinates FromOffsetCoordinates(int x, int z)
@@ -42,8 +42,15 @@ namespace Assets.Scripts.Tools
         Plain,
         Desert,
         Tundra,
-        Snow
+        Icelands
     }
+
+    public enum TerrainFeatures
+    {
+        Forest,
+        Jungle
+    }
+
 
 
 }

@@ -32,12 +32,6 @@ namespace Assets.Scripts.Game.Grid
 
                     Hexes[i] = _hexSpawner.CreateHex(parent, LandscapeTypes.Water, newHexLogic);
                     _hexSpawner.SetupHex(Hexes[i]);
-
-                    /*
-                    Hexes[i] = _hexSpawner.CreateHex(parent, Tools.LandscapeTypes.Water);
-                    Hexes[i].IndexInGrid = i;
-                    _hexSpawner.SetupHex(x, z, Hexes[i]);
-                    */
                 }
 
             Debug.Log($"Grid filled: {Width}x{Height}");

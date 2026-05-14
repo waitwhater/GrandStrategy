@@ -22,7 +22,6 @@ namespace Assets.Scripts.Tools
             for (int x = 0, i = 0; x < _hexGrid.Width; x++)
                 for (int z = 0; z < _hexGrid.Height; z++, i++)
                     ShowHexCoordinates(_hexGrid.Hexes[i]);
-                    //CreateDebugText(_hexGrid.Hexes[i].transform, $"{_hexGrid.Hexes[i].hexLogic.HexCoordinates}", _hexGrid.Hexes[i].GetHexWorldPosition());
         }
 
         public void ShowHexCoordinates(Hex hex)
@@ -40,7 +39,7 @@ namespace Assets.Scripts.Tools
             TMP.text = text;
             TMP.color = Color.black;
             TMP.alignment = TextAlignmentOptions.Center;
-            TMP.fontSize = 20f;
+            TMP.fontSize = 10f;
         }
         
     }

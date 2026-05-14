@@ -17,8 +17,6 @@ namespace Assets.Scripts.Game.HexCell
 {
     public class HexSpawner
     {
-        //private readonly GameObject _hexPrefab;
-
         private readonly Dictionary<LandscapeTypes, GameObject> _landscapeTypesPrefabs;
         private readonly IObjectResolver _resolver;
 
@@ -44,21 +42,6 @@ namespace Assets.Scripts.Game.HexCell
             return null;
         }
 
-        /*
-        public void SetupHex(int widthPos, int heightPos, Hex hex)
-        {
-            UnityEngine.Vector3 position;
-            position.x = (widthPos + heightPos * 0.5f - heightPos / 2) * (HexMetrics.innerRadius * 2f);
-            position.y = 0f;
-            position.z = heightPos * (HexMetrics.outerRadius * 1.5f);
-            //hex.hexCoordinates = HexMetrics.FromOffsetCoordinates(widthPos, heightPos);
-
-            //hex.LandscapeType = (LandscapeTypes)0;
-
-            hex.transform.position = position;
-            hex.gameObject.SetActive(true);
-        }
-        */
         public void SetupHex(Hex hex)
         {
             UnityEngine.Vector3 position;
@@ -85,7 +68,7 @@ namespace Assets.Scripts.Game.HexCell
                 case LandscapeTypes.Tundra:
                     hex.SetColor(Color.darkGray);
                     break;
-                case LandscapeTypes.Snow:
+                case LandscapeTypes.Icelands:
                     hex.SetColor(Color.snow);
                     break;
                 default:
